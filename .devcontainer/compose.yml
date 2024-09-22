@@ -3,8 +3,8 @@ name: "hello-rails7"
 services:
   rails-app:
     build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
+      context: .
+      dockerfile: Dockerfile
 
     volumes:
       - ../..:/workspaces:cached
