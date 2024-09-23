@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  domain: 1
+  base_price: 9.99
+  length_prices: MyText
+  type_prices: MyText
+
+two:
+  domain: 1
+  base_price: 9.99
+  length_prices: MyText
+  type_prices: MyText

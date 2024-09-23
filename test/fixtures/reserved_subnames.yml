@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  domain_id: 1
+  subname: MyString
+  mintable: false
+  special_minting_price: 9.99
+
+two:
+  domain_id: 1
+  subname: MyString
+  mintable: false
+  special_minting_price: 9.99

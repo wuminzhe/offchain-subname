@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_23_040216) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_23_100454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,26 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_23_040216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_domains_on_name", unique: true
+  end
+
+  create_table "minting_configs", force: :cascade do |t|
+    t.integer "domain_id"
+    t.decimal "base_price"
+    t.text "length_prices"
+    t.text "type_prices"
+    t.boolean "free_minting"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reserved_subnames", force: :cascade do |t|
+    t.integer "minting_config_id"
+    t.string "subname"
+    t.boolean "mintable"
+    t.decimal "minting_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["minting_config_id", "subname"], name: "index_reserved_subnames_on_minting_config_id_and_subname", unique: true
   end
 
   create_table "subnames", force: :cascade do |t|
