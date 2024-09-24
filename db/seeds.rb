@@ -12,36 +12,37 @@
 Domain.destroy_all
 Subname.destroy_all
 Address.destroy_all
-MintingPrice.destroy_all
+MintingConfig.destroy_all
 
 # Create domains
 domains = [
-  { name: 'example.com', description: 'Example domain' },
-  { name: 'test.com', description: 'Test domain' },
-  { name: 'mywebsite.com', description: 'My personal website' }
+  { name: 'example.eth', description: 'Example domain' },
+  { name: 'test.eth', description: 'Test domain' },
+  { name: 'mywebsite.eth', description: 'My personal website' }
 ]
 
 domains.each do |domain_data|
   domain = Domain.create!(domain_data)
   
-  # Create minting prices for each domain
-  MintingPrice.create!(
+  # Create minting configs for each domain
+  MintingConfig.create!(
     domain: domain,
     base_price: 0.01, # in ETH
     length_prices: { 1 => 0.1, 2 => 0.05, 3 => 0.02, 4 => 0.01 },
-    type_prices: { numbers_only: 0.02, letters_only: 0.01, emoji_only: 0.03 },
-    free_minting: false
+    type_prices: { numbers_only: 0.02, emoji_only: 0.03 },
+    free_minting: false,
+    reserved_subnames: ['admin', 'support', 'contact']
   )
 end
 
 # Create subnames
 subnames = [
-  { name: 'www', domain: Domain.find_by(name: 'example.com') },
-  { name: 'blog', domain: Domain.find_by(name: 'test.com') },
-  { name: 'shop', domain: Domain.find_by(name: 'mywebsite.com') },
-  { name: '123', domain: Domain.find_by(name: 'example.com') },
-  { name: 'abc', domain: Domain.find_by(name: 'test.com') },
-  { name: '😊', domain: Domain.find_by(name: 'mywebsite.com') }
+  { name: 'www', domain: Domain.find_by(name: 'example.eth') },
+  { name: 'blog', domain: Domain.find_by(name: 'test.eth') },
+  { name: 'shop', domain: Domain.find_by(name: 'mywebsite.eth') },
+  { name: '123', domain: Domain.find_by(name: 'example.eth') },
+  { name: 'abc', domain: Domain.find_by(name: 'test.eth') },
+  { name: '😊', domain: Domain.find_by(name: 'mywebsite.eth') }
 ]
 
 subnames.each do |subname|
