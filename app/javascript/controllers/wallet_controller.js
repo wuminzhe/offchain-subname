@@ -47,8 +47,7 @@ const App = () => {
 
 export default class extends Controller {
   connect() {
-    console.log("hello_controller connected")
-    // ReactDOM.render(<App />, this.element);
+    console.log("wallet_controller connected")
     createRoot(this.element).render(<App />);
   }
 }
