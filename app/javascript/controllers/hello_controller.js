@@ -1,8 +1,6 @@
-import '@rainbow-me/rainbowkit/styles.css';
-
 import { Controller } from "@hotwired/stimulus"
-import ReactDOM from 'react-dom';
 import React from 'react';
+import { createRoot } from 'react-dom/client';
 
 import {
   getDefaultConfig,
@@ -50,6 +48,7 @@ const App = () => {
 export default class extends Controller {
   connect() {
     console.log("hello_controller connected")
-    ReactDOM.render(<App />, this.element);
+    // ReactDOM.render(<App />, this.element);
+    createRoot(this.element).render(<App />);
   }
 }
