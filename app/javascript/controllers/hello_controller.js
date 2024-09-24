@@ -1,8 +1,9 @@
+import '@rainbow-me/rainbowkit/styles.css';
+
 import { Controller } from "@hotwired/stimulus"
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultConfig,
   RainbowKitProvider,
