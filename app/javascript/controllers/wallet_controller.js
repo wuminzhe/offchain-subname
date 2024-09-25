@@ -8,11 +8,8 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
+  // darwinia,
+  koi,
 } from 'wagmi/chains';
 import {
   QueryClientProvider,
@@ -25,13 +22,9 @@ import { http } from 'wagmi';
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
   projectId: '873f70fa626990b1ee3c14d55130a573',
-  chains: [mainnet, polygon, optimism, arbitrum, base],
+  chains: [koi],
   transports: {
-    [mainnet.id]: http(),
-    [polygon.id]: http(),
-    [optimism.id]: http(),
-    [arbitrum.id]: http(),
-    [base.id]: http(),
+    [koi.id]: http(),
   },
   ssr: false, // If your app uses SSR, set this to true
 });
