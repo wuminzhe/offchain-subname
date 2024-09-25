@@ -1,0 +1,12 @@
+<div class="flex items-center justify-center min-h-screen">
+  <div class="mt-[-50vh] w-full max-w-2xl px-3">
+    <%= form_with url: analyze_subname_path, method: :get, local: true, class: 'space-y-4 shadow-lg rounded-xl bg-white' do |f| %>
+      <div class="flex">
+        <%= f.text_field :subname, class: "bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-l-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-3", placeholder: "Enter subname", required: true %>
+        <span class="inline-flex items-center px-4 text-lg text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-xl">
+          .akiwu.eth
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
