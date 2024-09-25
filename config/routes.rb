@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   # Add the route for analyzing subnames
   get '/analyze_subname', to: 'subnames#analyze', as: 'analyze_subname'
+
+  post '/api/verify', to: 'sessions#verify', as: 'verify'
+  get '/api/nonce', to: 'sessions#nonce', as: 'nonce'
 end

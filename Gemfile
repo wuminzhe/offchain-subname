@@ -59,3 +59,5 @@ group :test do
 end
 
 gem "annotate", "~> 3.2"
+
+gem "siwe", "~> 2.0"
