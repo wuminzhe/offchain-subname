@@ -20,18 +20,28 @@ import {
 } from "@tanstack/react-query";
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-const YourApp = () => {
-  return <ConnectButton />;
-};
+import { http } from 'wagmi';
 
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
   projectId: '873f70fa626990b1ee3c14d55130a573',
   chains: [mainnet, polygon, optimism, arbitrum, base],
-  ssr: false,
+  transports: {
+    [mainnet.id]: http(),
+    [polygon.id]: http(),
+    [optimism.id]: http(),
+    [arbitrum.id]: http(),
+    [base.id]: http(),
+  },
+  ssr: false, // If your app uses SSR, set this to true
 });
 
+// Create a client
 const queryClient = new QueryClient();
+
+const YourApp = () => {
+  return <ConnectButton accountStatus="address" chainStatus="icon" showBalance={false}/>;
+};
 
 const App = () => {
   return (

@@ -18,8 +18,6 @@
   </head>
 
   <body class="h-full">
-
-
     <div class="antialiased bg-gray-50 dark:bg-gray-900 h-full">
       <nav class="px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
         <div class="flex flex-wrap justify-between items-center">
@@ -58,29 +56,17 @@
             </svg>
             <span class="sr-only">Toggle sidebar</span>
           </button>
-          <a href="https://flowbite.com" class="flex items-center justify-between mr-4">
-            <img
-              src="https://flowbite.s3.amazonaws.com/logo.svg"
-              class="mr-3 h-8"
-              alt="Flowbite Logo"
-            />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-          </a>
         </div>
         <div class="flex items-center lg:order-2">
           <%= content_tag :div, "", id: "root", data: { controller: "wallet" } %>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <main class="p-4 md:ml-64 md:mr-64 h-full pt-16">
-      <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-full mb-4"
-      >
-        <%= yield %>
-      </div>
-    </main>
-  </div>
-    
+      <main class="p-4 md:ml-64 md:mr-64 h-full pt-16 pb-6">
+        <div class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-full mb-4">
+          <%= yield %>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
